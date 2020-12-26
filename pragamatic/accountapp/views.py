@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse_lazy, reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from .models import HelloWorld
 
@@ -24,9 +24,14 @@ def Hello(request) :
         return render(request, 'accountapp/hello_world.html', context={"text": 'GET METHOD !!!', "hello_world_list" : hello_world_list,})
 
 
-class AccountCreateview(CreateView) :
+class AccountCreateView(CreateView) :
     model = User
     form_class = UserCreationForm
     success_url = reverse_lazy('account:hello')
     template_name = 'accountapp/create.html'
 
+
+class AccountDetailView(DetailView) :
+    model = User
+    context_object_name = 'target_user'
+    template_name = 'accountapp/detail.html'

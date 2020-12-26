@@ -12,6 +12,9 @@
                 <span> Login + </span>
             </a>
         {% else %}
+            <a href="{% url 'account:detail' pk=user.pk %}">
+                <span> MyPage </span>
+            </a>
             <a href="{% url 'account:logout' %}?next={{request.path}}">
                 <span> Logout - </span>
             </a>
