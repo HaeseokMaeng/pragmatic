@@ -16,9 +16,13 @@
         </form>
 
 
-        {% if hello_world %}
+        {% if hello_world_list %}
+
+            {% for item in hello_world_list %}
+            <h4> {{ item.text }} </h4>
+            {% endfor %}
         <h1>
-            {{ hello_world.text }}
+            <span> {{ text }} </span>
         </h1>
         {% else %}
         <h1>
