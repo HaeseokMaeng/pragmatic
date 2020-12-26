@@ -21,4 +21,5 @@ app_name = 'account'
 
 urlpatterns = [
     path('hello/', views.Hello, name='hello'),
+    path('create/', views.AccountCreateview.as_view(), name='create'),
 ]
