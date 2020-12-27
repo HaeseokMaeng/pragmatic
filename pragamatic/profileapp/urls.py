@@ -8,4 +8,6 @@ urlpatterns = [
     # path('login/', LoginView.as_view(template_name='accountapp/login.html'), name='login'),
     # path('detail/<int:pk>', views.AccountDetailView.as_view(), name='detail'),
 
+    path('create/', views.ProfileCreateView.as_view(), name='create'),
+
 ]
