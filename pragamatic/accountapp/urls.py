@@ -19,7 +19,7 @@ from django.urls import path, include
 from . import views
 from .decorators import account_ownership_required
 
-app_name = 'account'
+app_name = 'accountapp'
 
 urlpatterns = [
     path('hello/', views.Hello, name='hello'),

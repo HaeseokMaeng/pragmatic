@@ -12,13 +12,13 @@
             </h2>
 
             {% if target_user == user %}
-                <a href="{% url 'account:update' pk=target_user.pk %} ">
+                <a href="{% url 'accountapp:update' pk=target_user.pk %} ">
                     <p>
                         Chanage Info
                     </p>
                 </a>
 
-                <a href="{% url 'account:delete' pk=target_user.pk %} ">
+                <a href="{% url 'accountapp:delete' pk=target_user.pk %} ">
                     <p>
                         Delete
                     </p>
