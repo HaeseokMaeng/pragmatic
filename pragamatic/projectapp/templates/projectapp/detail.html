@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <div style="text-align: center; width:85%; max-width: 500px; margin: 4rem auto;">
+
+        <img src="{{ target_project.img.url }}" alt=""
+             style="height: 12rem; width: 12rem; border-radius:20rem; margin-top: 2rem; object-fit: cover;"/>
+
+        <hr>
+        <h2 style="font-family: 'NanumSquareB'">
+            {{target_project.title}}
+        </h2>
+        <h5 style="margin-bottom: 3rem;">
+            registed by {{target_project.writer.profile.nickname }}
+        </h5>
+
+
+        <p>
+            {{ target_project.description }}
+        </p>
+
+        <hr>
+    </div>
+{% endblock %}
