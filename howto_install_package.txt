@@ -1,0 +1,9 @@
+- How to list
+    pip list
+
+- How to freeze package
+    pip freeze > requirements.txt
+
+- How to install package
+    pip install -r requirements.txt
+
