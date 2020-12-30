@@ -2,8 +2,7 @@
 {% load bootstrap4 %}
 
 {% block content %}
-    <div style="text-align: center; width:85%; max-width: 500px; margin: 4rem auto;">
-
+    <div style="text-align: center; width:85%; max-width: 500px; margin: 4rem auto 1.5rem auto; ">
         <img src="{{ target_project.img.url }}" alt=""
              style="height: 12rem; width: 12rem; border-radius:20rem; margin-top: 2rem; object-fit: cover;"/>
 
@@ -14,11 +13,23 @@
         <h5 style="margin-bottom: 3rem;">
             registered by {{target_project.writer.profile.nickname }}
         </h5>
-
-
-        <p>
+        <h5>
             {{ target_project.description }}
-        </p>
+        </h5>
+
+        {% if user.is_authenticated %}
+            {% if not subscription %}
+                <div class="text-center mb-5 ">
+                     <a href="{% url 'subscriptionapp:subscribe' %}?project_pk={{target_project.pk}}"
+                        class="btn btn-primary rounded-pill px-4"> Subscribe </a>
+                </div>
+            {% else %}
+                <div class="text-center mb-5 ">
+                     <a href="{% url 'subscriptionapp:subscribe' %}?project_pk={{target_project.pk}}"
+                        class="btn btn-dark rounded-pill px-4"> Unsubscribe </a>
+                </div>
+            {% endif %}
+        {% endif %}
 
 
     </div>
