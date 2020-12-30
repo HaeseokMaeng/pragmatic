@@ -8,5 +8,5 @@ class Comment(models.Model) :
     article = models.ForeignKey(Article, on_delete=models.SET_NULL, null=True, related_name="comment")
     writer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="comment")
     content = models.TextField(null=False)
-    create_at = models.DateTimeField(auto_created=True, null=True)
+    create_at = models.DateTimeField(auto_now=True, null=True)
 
