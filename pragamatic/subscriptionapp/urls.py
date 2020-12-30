@@ -8,4 +8,5 @@ urlpatterns = [
     # path('create/', views.ProjectCreateView.as_view(), name='create'),
     # path('detail/<int:pk>', views.ProjectDetailView.as_view(), name='detail'),
     path('subscribe/', views.SubscriptionRedirectView.as_view(), name='subscribe'),
+    path('list/', views.SubscriptionListView.as_view(), name='list'),
 ]
