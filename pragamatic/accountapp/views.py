@@ -13,29 +13,13 @@ from django.views.generic.list import MultipleObjectMixin
 from articleapp.models import Article
 from .decorators import account_ownership_required
 from .forms import AccountUpdateForm
-from .models import HelloWorld
 
 has_ownership = [login_required, account_ownership_required]
-
-@login_required
-def Hello(request) :
-
-    if request.method == "POST" :
-        temp = request.POST.get('hello_world_input')
-
-        tmp_HelloWorld = HelloWorld()
-        tmp_HelloWorld.text = temp
-        tmp_HelloWorld.save()
-        return HttpResponseRedirect(reverse('accountapp:hello'))
-    else :
-        hello_world_list = HelloWorld.objects.all()
-        return render(request, 'accountapp/hello_world.html', context={"text": 'GET METHOD !!!', "hello_world_list" : hello_world_list,})
-
 
 class AccountCreateView(CreateView) :
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello')
+    success_url = reverse_lazy('home')
     template_name = 'accountapp/create.html'
 
 
@@ -58,7 +42,7 @@ class AccountUpdateView(UpdateView) :
     model = User
     context_object_name = 'target_user'
     form_class = AccountUpdateForm
-    success_url = reverse_lazy('accountapp:hello')
+    success_url = reverse_lazy('accountapp:detail')
     template_name = 'accountapp/update.html'
 
 
