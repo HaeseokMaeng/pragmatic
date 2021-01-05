@@ -15,3 +15,7 @@ class Article(models.Model) :
 
     create_at = models.DateField(auto_now=True, null=True)
 
+
+class Favorite(models.Model) :
+    writer = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='favorite', null=True)
+    article = models.ForeignKey(Article, on_delete=models.SET_NULL, related_name='favorite', null=True)
